@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 22px;
+    background-color: #f0f2f5;
+    color: #1a1a1a;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #004085;
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+button {
+    font-size: 20px;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background-color: #ffc107;
+    font-weight: bold;
+    color: #000;
+}
+
+button:hover {
+    background-color: #e0a800;
+}
+
+main {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.welcome-card {
+    background: #e8f4fd;
+    border: 3px solid #004085;
+    padding: 25px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    border: 3px solid #004085;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    background-color: #f8f9fa;
+}
+
+/* Фокус для клавиатурной навигации (доступность WCAG) */
+.card-interactive:focus, 
+.welcome-card:focus {
+    outline: 4px solid #ffc107;
+    background-color: #e8f4fd;
+}
+
+.voice-panel {
+    margin-top: 30px;
+    background: #e2e3e5;
+    padding: 25px;
+    border-radius: 12px;
+    text-align: center;
+    border: 2px solid #ccc;
+}
+
+#micBtn {
+    background-color: #28a745;
+    color: white;
+    width: 100%;
+    max-width: 500px;
+    font-size: 24px;
+}
+
+#commandStatus {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Режим высокой контрастности */
+body.high-contrast {
+    background-color: #000 !important;
+    color: #ffff00 !important;
+}
+body.high-contrast header,
+body.high-contrast .card,
+body.high-contrast .welcome-card,
+body.high-contrast .voice-panel {
+    background: #000 !important;
+    border: 3px solid #ffff00 !important;
+    color: #ffff00 !important;
+}
+body.high-contrast #commandStatus {
+    color: #ffff00 !important;
+}
+body.high-contrast .card-interactive:focus {
+    outline: 4px solid #fff !important;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    body {
+        font-size: 18px;
+        padding: 10px;
+    }
+}

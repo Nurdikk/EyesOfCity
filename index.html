@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Глаза города — Алматы</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <h1>Глаза города (Алматы)</h1>
+        <button onclick="toggleContrast()">Высокий контраст</button>
+    </header>
+
+    <!-- Основной контент -->
+    <main>
+        <!-- Визуальное табло экранного диктора (гарантия доступности и работы при отключенном звуке ОС) -->
+        <div id="screenReaderOutput" aria-live="polite" style="background: #e8f4fd; border: 3px solid #004085; padding: 20px; border-radius: 12px; font-weight: bold; color: #004085; text-align: center; font-size: 20px;">
+            🔊 Диктор: Сайт готов к работе. Нажимайте на карточки или используйте голос.
+        </div>
+
+        <!-- Приветственный блок (поддержка клавиатуры через tabindex) -->
+        <section class="welcome-card card-interactive" tabindex="0" role="button" onclick="speakText('Добро пожаловать в путеводитель Глаза города. Вы можете управлять сайтом голосом или нажимать на карточки.')" onkeypress="if(event.key==='Enter') speakText('Добро пожаловать в путеводитель Глаза города.')">
+            <h2>Добро пожаловать!</h2>
+            <p>Доступный путеводитель по Алматы для слабовидящих. Нажмите сюда для прослушивания.</p>
+        </section>
+
+        <!-- Сетка категорий -->
+        <div class="categories-grid">
+            <div class="card card-interactive" tabindex="0" role="button" onclick="selectCategory('Аптеки')" onkeypress="if(event.key==='Enter') selectCategory('Аптеки')">
+                <h2>💊 Аптеки</h2>
+                <p>Ближайшие аптеки с пандусами и звуковыми маяками.</p>
+            </div>
+            <div class="card card-interactive" tabindex="0" role="button" onclick="selectCategory('Поликлиники')" onkeypress="if(event.key==='Enter') selectCategory('Поликлиники')">
+                <h2>🏥 Поликлиники</h2>
+                <p>Медицинские учреждения города.</p>
+            </div>
+            <div class="card card-interactive" tabindex="0" role="button" onclick="selectCategory('ЦОНы')" onkeypress="if(event.key==='Enter') selectCategory('ЦОНы')">
+                <h2>📄 ЦОНы</h2>
+                <p>Центры обслуживания населения.</p>
+            </div>
+            <div class="card card-interactive" tabindex="0" role="button" onclick="selectCategory('Остановки')" onkeypress="if(event.key==='Enter') selectCategory('Остановки')">
+                <h2>🚏 Остановки</h2>
+                <p>Информация об автобусных маршрутах.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Панель голосового управления -->
+    <div class="voice-panel">
+        <button id="micBtn" onclick="startVoiceAssistant()">🎙 Нажми и скажи команду</button>
+        <p id="commandStatus">Статус: Ожидание команды...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
