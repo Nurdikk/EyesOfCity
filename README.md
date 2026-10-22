@@ -1,4 +1,4 @@
-# City Eyes 3.1 — Satbayev University Demo
+# City Eyes 3.1 — Satbayev University
 
 Open `index.html` using VS Code Live Server, or run `START-WINDOWS.bat` if Python is installed.
 
